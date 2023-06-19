@@ -1,5 +1,5 @@
 <template>
-  <div id="oscar1-wrapper" style="height: 100vh; overflow: hidden;">
+  <div style="height: 100vh; overflow: hidden;">
     <div v-if="loading" class="loading-page">
       <div class="loading"></div>
     </div>

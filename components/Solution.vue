@@ -14,10 +14,10 @@
             <div class="solution-section-item solution-section-2">
                 <div class="solution2-container" >
                     <div class="flex" style="width: 80%;">
-                    <div style="width: 50%;">
-                        <div id="chartLottie" class="lottie-wrapper" ref="chart" style="background-color: black;"  ></div>
+                    <div style="position: absolute; left: 0; width: 90vw;">
+                        <div id="chartLottie" class="lottie-wrapper" ref="chart" style="width: 100%;"></div>
                     </div>
-                    <div style="width: 50%;">
+                    <div style="position: absolute; width: 50%; left: 50%;">
                         <img src="../assets/img/solution/83.png" style="width: 500px;" />
                         
                         <p class="font-grey" style="font-weight: bold; padding-top: 30px; padding-left: 50px; font-size: 35px; border: solid 1px; border-width: 1px 0 0 0;" >An average PTA ballon requires up to 65 stock units to cover a full size range. The Oscar PTA Ballon only needs 11.</p>
@@ -103,14 +103,14 @@
     mounted() {
         const panels = gsap.utils.toArray("#solution-section .solution-section-item");
         let panelsContainer = document.querySelector("#solution-section")
-        let playhead = {frame: 10}
+        let playhead = {frame: 0}
         // this.chartLottieScrollTrigger()
         const animation3 = lottie.loadAnimation({
                 container: gsap.utils.toArray("#chartLottie")[0],
                 renderer: "svg",
                 loop: false,
                 autoplay: false,
-                path: 'https://lottie.host/e9c52127-4aa2-4a96-9e78-e02f34019c86/KH082lccRF.json'
+                path: 'https://assets10.lottiefiles.com/packages/lf20_d6QpT1Rx5T.json'
             });
         
 
@@ -136,7 +136,7 @@
             ease: "none",
         }, 'move')
         .to(playhead, {
-            frame: 200,
+            frame: 58,
             ease: "none",
             onUpdate: (a,b,c) => {
                 animation3.goToAndStop(playhead.frame, true)

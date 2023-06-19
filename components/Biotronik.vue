@@ -1,11 +1,13 @@
 <template>
   <div id="biotronik" style="overflow-x: hidden;">
     <template v-if="mode==='desktop'">
-      <div ref="oscar1">
-        <oscar1 />
-      </div>
-      <div ref="oscar2">
-        <oscar2 />
+      <div id="oscar-wrapper">
+        <div ref="oscar1">
+          <oscar1 />
+        </div>
+        <div ref="oscar2">
+          <oscar2 />
+        </div>
       </div>
       <div ref="solution">
         <solution />

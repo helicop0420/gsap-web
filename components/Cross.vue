@@ -57,7 +57,7 @@
 				<div class="cross-right-4 cross-right-item">
 					<div class="cross-curved">
 						<div class="flex justify-end items-center">
-							<img src="../assets/img/cross/curved.jpg" width="80%" />
+							<img src="../assets/img/cross/curved.jpg" style="width: 80%; max-width: 758px;"/>
 						</div>
 						<div class="flex justify-start items-center mt-20" style="padding-left: 100px;">
 							<div>
@@ -188,17 +188,6 @@
       };
     },
     mounted() {
-			// gsap.timeline({
-      //   scrollTrigger: {
-      //     trigger: '.cross-left',
-      //     start: 'top top',
-      //     scrub: true,
-			// 		end: "bottom top",
-			// 		// pin: true
-      //     // ease: gsap.Power3.easeOut
-      //   }
-      // })
-			// .to(".cross-left-dilator-body", {top: '-50vh'})
 			
       gsap.timeline({
         scrollTrigger: {
