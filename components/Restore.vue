@@ -1,5 +1,5 @@
 <template>
-	<div class="restore-wrapper">
+	<div class="restore-wrapper" id="restore-wrapper">
 		<div class="world-section">
 			<h1>A Real-World User Evaluation </h1>
 			<div class="grid grid-cols-2 gap-4 align-stretch">

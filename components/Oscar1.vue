@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 100vh; overflow: hidden;">
+  <div id="oscar1-wrapper" style="height: 100vh; overflow: hidden;">
     <div v-if="loading" class="loading-page">
       <div class="loading"></div>
     </div>
@@ -55,7 +55,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
   .main-img, .oscar-texts, .contact-form {
     transition: all 1.5s ease-out, opacity 2.5s ease-out;
   }

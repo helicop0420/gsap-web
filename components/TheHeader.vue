@@ -1,15 +1,36 @@
 <template>
   <nav :class="headerClassList" class="fixed w-full top-0" style="z-index: 1000000000;">
     <div
-      class="mx-auto flex flex-wrap items-center justify-between mt-0 py-5 custom-header"
+      class="mx-auto flex flex-wrap items-center justify-between mt-0 custom-header"
       style="width: 80%;"
     >
-      <div>
-        <div class="nav-btn" @click="isOpen=true" v-if="isOpen == false">
+      <div class="flex">
+        <!-- <div class="nav-btn" @click="isOpen=true" v-if="isOpen == false">
           ≡
         </div>
         <div class="nav-btn-clicked" @click="isOpen=false" v-if="isOpen == true">
           x
+        </div> -->
+        <div :class="'header-item' + (clickedItem=='oscar'?' clicked':'')">
+          <p :class="'br-item'" ><a href="#oscar1-wrapper" @click="clickedItem='oscar'">OSCAR</a></p>
+        </div>
+        <div :class="'header-item' + (clickedItem=='solution'?' clicked':'')">
+          <p :class="'br-item'" ><a href="#solution-wrapper" @click="clickedItem='solution'">ONE SOLUTION</a></p>
+        </div>
+        <div :class="'header-item' + (clickedItem=='cross'?' clicked':'')">
+          <p class="br-item"  ><a href="#cross-wrapper" @click="clickedItem='cross'">CROSS</a></p>
+        </div>
+        <div :class="'header-item' + (clickedItem=='adjust'?' clicked':'')">
+          <p class="br-item" ><a href="#adjust-wrapper" @click="clickedItem='adjust'">ADJUST</a></p>
+        </div>
+        <div :class="'header-item' + (clickedItem=='restore'?' clicked':'')">
+          <p class="br-item" ><a href="#restore-wrapper" @click="clickedItem='restore'">RESTORE</a></p>
+        </div>
+        <div :class="'header-item' + (clickedItem=='test'?' clicked':'')">
+          <p class="br-item" ><a href="#test-wrapper" @click="clickedItem='test'">TESTIMONIALS</a></p>
+        </div>
+        <div :class="'header-item' + (clickedItem=='find'?' clicked':'')">
+          <p class="br-item" ><a href="#find-wrapper" @click="clickedItem='find'">FIND OUT MORE</a></p>
         </div>
       </div>
       <div class="flex justify-center items-center">
@@ -45,10 +66,11 @@ export default {
       scrollY: 0,
       isOpen: false,
       mode: '',
-
+      clickedItem: 'oscar'
     }
   },
   computed: {
+
     isSticky() {
       return this.scrollY > 10
     },
@@ -97,6 +119,22 @@ export default {
 </script>
 
 <style scoped>
+
+.br-item {
+  border-right: 1px solid black;
+  padding: 0px 10px 0px 10px;
+  cursor: pointer;
+}
+.header-item.clicked {
+  padding: 25px 0px 25px 0px;
+  font-size: 14px;
+  border-bottom: 1px solid orange;
+  color: orange;
+}
+.header-item {
+  padding: 25px 0px 25px 0px;
+  font-size: 14px;
+}
 .bg-greyWhite {
   background-color: #F8F8F8 !important;
 }

@@ -1,5 +1,5 @@
 <template>
-	<div style="position: relative;">
+	<div style="position: relative;" id="adjust-wrapper">
 		<div class="pta-section">
 			<img class="img-adjust" src="../assets/img/adjust/standard_adjust.png" />
 			<div class="pta-text">

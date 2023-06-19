@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div id="cross-wrapper">
 		
 		<div class="cross-container">
 			<div class="flex justify-center cross-left" style="background-color: #F7AF8E; width: 40%;">

@@ -23,6 +23,9 @@
         <testimon />
       </div>
     </template>
+    <template v-if="mode==='tablet'">
+      <tablet-oscar1 />
+    </template>
     <template v-if="mode==='mobile'">
       <hero-content-mobile />
     </template>
@@ -39,6 +42,7 @@ import Adjust from '@/components/Adjust'
 import Restore from '@/components/Restore'
 import Testimon from '@/components/Testimon'
 import HeroContentMobile from '@/components/HeroContentMobile'
+import TabletOscar1 from '@/components/tablet/Oscar1.vue'
 import gsap from 'gsap'
 
 if (process.client) {
@@ -81,7 +85,8 @@ export default {
   },
   mounted () {
 
-    if (window.innerWidth >= 768) this.mode = 'desktop';
+    if (window.innerWidth >= 992) this.mode = 'desktop';
+    else if(window.innerWidth >= 320) this.mode = 'tablet'
     else this.mode = 'mobile';
     setTimeout(() => {
       const {oscar1, oscar2} = this.$refs;
@@ -112,7 +117,8 @@ export default {
     'hero-content-mobile': HeroContentMobile,
     'adjust': Adjust,
     'restore': Restore,
-    'testimon': Testimon
+    'testimon': Testimon,
+    'tablet-oscar1': TabletOscar1
   }
 }
 </script>
