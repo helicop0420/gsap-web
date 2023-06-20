@@ -2,7 +2,7 @@
 	<div class="testimon-wrapper" id="test-wrapper">
 		<h1>Take their word for it</h1>
 		<div class="testimon-video">
-			<video></video>
+			<video src="https://www.youtube.com/@BIOTRONIKmedia" style="max-height: 68vh; height: 100%;" controls></video>
 		</div>
 		<p class="testimon-subtitle">PHYSICIAN TESTIMONIAL</p>
 		<p class="testimon-content">How does Oscar change the way to approach your procedures?</p>
@@ -26,7 +26,6 @@
 }
 .testimon-video {
 	flex-grow: 1;
-	background-color: aqua;
 }
 .testimon-content {
 	font-size: 40px;
