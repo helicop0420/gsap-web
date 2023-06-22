@@ -4,7 +4,7 @@
 			<h1>A Real-World User Evaluation </h1>
 			<div class="grid grid-cols-2 gap-4 align-stretch">
 				<div class="world-item world-left col-span-1">
-					<h2>Real-World User Evaluation</h2>
+					<h2 style="display: flex;">Real-World User Evaluation<p style="margin-top: 2px; font-size: 21px;">3</p></h2>
 					<div class="world-content">
 						<div class="world-content-left flex align-center gap-3">
 							<img class="world-left-image" src="../assets/img/restore/Icon_1.png"/>
@@ -42,12 +42,21 @@
 					</div>
 				</div>
 				<div class="world-item world-right col-span-1">
-					<h2>Oscar User Evaluation</h2>
+					<h2 style="display: flex;">Oscar User Evaluation<p style="margin-top: 2px; font-size: 21px;">3</p></h2>
 					<div class="world-content">
-						<div class="grid gap-2 grid-cols-2">
-							<div class="col-span-1"></div>
-							<div class="col-span-1"></div>
-							<div class="col-span-1"></div>
+						<div class="grid gap-16 grid-cols-2">
+							<div class="col-span-1 text-center">
+								<div id="restore1" class="lottie-wrapper2" ref="restore1" style=""></div>
+								<p>Crossing success</p>
+							</div>
+							<div class="col-span-1 text-center">
+								<div id="restore2" class="lottie-wrapper2" ref="restore2" style=""></div>
+								<p>PTA technical success</p>
+							</div>
+							<div class="col-span-1 text-center">
+								<div id="restore3" class="lottie-wrapper2" ref="restore3" style=""></div>
+								<p>Improved procedural<br>efficiency</p>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -55,9 +64,26 @@
 		</div>
 		<div class="achieve-section">
 			<h1>Achieve the pushability of an 0.035" system on an 0.018" platform</h1>
-			<div class="grid grid-cols-2 gap-4">
+			<div class="grid grid-cols-2 gap-4 mb-12">
 				<div class="col-span-1">
-					<p class="achieve-title"><span class="color-orange">Oscar</span> pushability on the bench </p>
+					<div class="achieve-title flex"><span class="color-orange" style="margin-right: 5px;">Oscar</span> pushability on the bench<p style="margin-top: 0px; font-size: 16px;">4</p></div>
+					<div class="grid grid-cols-3 gap-3">
+						<div class="col-span-1 pt-6">
+								<p class="color-orange mb-3"><b>Oscar, 0.018"</b><br>BITRONIK</p>
+								<p class="color-gray"><b>NaviCross, 0.035"</b><br>Terumo</p>
+								<div class="color-gray" style="margin-top: 50px;">
+									<div class="flex">
+										<div style="width: 20px; height: 20px; background-color:#F04E23; margin-right: 10px;"></div>
+										<p>Position 0</p>
+									</div>
+									<div class="flex">
+										<div style="width: 20px; height: 20px; background-color:#F58B6E; margin-right: 10px;"></div>
+										<p>180 mm</p>
+									</div>
+								</div>
+							</div>
+						<div class="col-span-2"></div>
+					</div>
 				</div>
 				<div class="col-span-1"></div>
 			</div>
@@ -114,7 +140,7 @@
 	}
 	.world-item {
 		background-color: white;
-		padding: 10px 50px 10px 10px !important;
+		padding: 20px 40px 10px 20px !important;
 	}
 	.world-item>h2 {
 		color: #EF5923;
@@ -124,6 +150,9 @@
 	.color-orange {
 		color: #EF5923;
 		font-weight: bold;
+	}
+	.world-content {
+		padding: 20px;
 	}
 	.world-content-left {
 		margin-bottom: 20px;
@@ -141,13 +170,17 @@
 		background-color: white;
 		width: 80vw;
 		margin-left: 10vw;
-		padding: 10px;
+		padding: 20px;
 		opacity: 0.1;
 		height: 60vh;
 	}
 	.achieve-title {
 		font-size: 20px;
 		font-weight: bold;
+		color: #6E6E6E;
+	}
+	.color-gray {
+		color: #6E6E6E;
 	}
 
 	.meet-section {
@@ -232,6 +265,55 @@
       };
     },
     mounted() {			
+			const selft = this;
+			const {restore1} = this.$refs;
+
+			const animation1 = lottie.loadAnimation({
+                container: gsap.utils.toArray("#restore1")[0],
+                renderer: "svg",
+                loop: false,
+                autoplay: false,
+                path: 'https://assets4.lottiefiles.com/packages/lf20_wciY22iqor.json'
+            });
+
+			const animation2 = lottie.loadAnimation({
+                container: gsap.utils.toArray("#restore2")[0],
+                renderer: "svg",
+                loop: false,
+                autoplay: false,
+                path: 'https://assets2.lottiefiles.com/packages/lf20_dSaBZqLXsv.json'
+            });
+			
+			const animation3 = lottie.loadAnimation({
+                container: gsap.utils.toArray("#restore3")[0],
+                renderer: "svg",
+                loop: false,
+                autoplay: false,
+                path: 'https://assets8.lottiefiles.com/packages/lf20_XYswRcqon7.json'
+            });
+			ScrollTrigger.create({
+				trigger: restore1,
+				start: "top bottom",
+				onToggle: self => {
+					animation1.play();
+				}
+			});
+			ScrollTrigger.create({
+				trigger: restore2,
+				start: "top bottom",
+				onToggle: self => {
+					animation2.play();
+				}
+			});
+			ScrollTrigger.create({
+				trigger: restore3,
+				start: "top bottom",
+				onToggle: self => {
+					animation3.play();
+				}
+			});
+
+
 			gsap.timeline({
         scrollTrigger: {
           trigger: '.world-section',
@@ -247,7 +329,7 @@
           trigger: '.achieve-section',
           start: 'top bottom',
           scrub: true,
-					end: "top top",
+					end: "center center",
         }
       })
 			.to(".achieve-section", {opacity:1})
@@ -261,7 +343,30 @@
         }
       })
 			.to(".meet-left", {left:0})
-		}
+		},
+
+		methods: {
+        goToSection (top) {
+        let observer = ScrollTrigger.normalizeScroll(true);
+        console.log('goTo', top);
+        this.scrollTween = gsap.to(window, {
+            scrollTo: {y: top, autoKill: false},
+            ease: "strong.inOut",
+            duration: 1,
+            onStart: () => {
+            observer.disable(); // for touch devices, as soon as we start forcing scroll it should stop any current touch-scrolling, so we just disable() and enable() the normalizeScroll observer
+            observer.enable();
+            },
+            onComplete: () => this.scrollTween = null,
+            overwrite: true
+        });
+        },
+        getTopPosition (el, idx) {
+            // return (idx - 1) * window.innerHeight;
+            // if (el.parentElement.classList.contains('pin-spacer')) return el.parentElement.getBoundingClientRect().top + window.scrollY;
+            return el.getBoundingClientRect().top + window.scrollY;
+        },
+    }
   };
   
   

@@ -87,7 +87,7 @@ export default {
   },
   mounted () {
 
-    if (window.innerWidth >= 992) this.mode = 'desktop';
+    if (window.innerWidth >= 1300) this.mode = 'desktop';
     else if(window.innerWidth >= 320) this.mode = 'tablet'
     else this.mode = 'mobile';
     setTimeout(() => {
