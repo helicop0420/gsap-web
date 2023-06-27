@@ -40,9 +40,10 @@
 					</div>
 				</div>
 				<div class="cross-right-3 cross-right-item flex items-center">
-					<div class="cross-support-2">
-						<img src="../assets/img/cross/Braided support Cath X2.png" style="padding-left: 20px; height: 200px;" />
-						<div class="flex justify-center items-center mt-20" style="padding-left: 30%;">
+					<div class="cross-support-2" style="height: 100%; position: relative;">
+						<!-- <img src="../assets/img/cross/Braided support Cath X2.png" style="padding-left: 20px; height: 200px;" /> -->
+						<video id="cross-video" src="../assets/video/cross-video.mp4" style="width;: 100%" muted="true"></video>
+						<div class="flex justify-center items-center mt-20" style="padding-left: 30%; right: 6vw; bottom: 14vh; position: absolute;">
 							<div>
 								<p class="text-white" style="font-weight: bold; font-size: 50px; line-height: 50px;">Cross</p>
 								<p class="text-white" style="font-weight: bold; font-size: 35px; line-height: 40px;">Braided Support Catheter</p>
@@ -54,8 +55,9 @@
 						</div>
 					</div>
 				</div>
-				<div class="cross-right-4 cross-right-item">
-					<div class="cross-curved">
+				<div class="cross-right-4 cross-right-item" style="position: relative;">
+					<div style="height: 100vh; position: absolute; width: 100%; background-color: white;"></div>
+					<div class="cross-curved" style="position: absolute; width: 100%;">
 						<div class="flex justify-end items-center">
 							<img src="../assets/img/cross/curved.jpg" style="width: 80%; max-width: 758px;"/>
 						</div>
@@ -70,10 +72,34 @@
 						</div>
 					</div>
 				</div>
-				<!-- <div class="cross-right-5 cross-right-item">
-					<p class="font-orange" style="font-size: 40px;">Achieve the pushability of an 0.035"</p>
-					<p class="font-orange" style="font-size: 40px;">system on an 0.018" platform*</p>
-				</div> -->
+				<div class="cross-right-5 cross-right-item p-4 color-gray">
+					<p class="font-orange" style="font-size: 30px; border-top: 2px solid #ED6C23; display: table;"><b>Achieve the pushability of an 0.035"</b></p>
+					<p class="font-orange" style="font-size: 30px;"><b>system on an 0.018" platform*</b></p>
+					<div style="margin-top: 70px;">
+						<p style="border-bottom: 2px solid grey;">Oscar Variale Pushability</p>
+						<div class="grid grid-cols-3 gap-4 pr-4">
+							<div class="col-span-1">
+								<p class="mt-4" style="color: #ED6C23;">Oscar, 0.018" <br>BIOTRONIK</p>
+								<p class="mt-3">Ouick-Cross, 0.018" <br>Philips</p>
+								<p class="mt-3">Ouick-Cross-Extreme, 0.018" <br>Philips</p>
+								<p class="mt-3">CXI, 0.018" <br>Cook Medical</p>
+								<p class="mt-3">NaviCross, 0.035" <br>Teruno</p>
+								<div class="color-gray" style="margin-top: 50px;">
+									<div class="flex">
+										<div style="width: 20px; height: 20px; background-color:#F04E23; margin-right: 10px;"></div>
+										<p>Position 0</p>
+									</div>
+									<div class="flex">
+										<div style="width: 20px; height: 20px; background-color:#F58B6E; margin-right: 10px;"></div>
+										<p>180 mm</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-span-2"></div>
+						</div>
+						<p class="color-gray mt-3">*Testing performed with Oscar 0.018/6F Support Catheter + Dilator combination</p>
+					</div>
+				</div>
 
 			</div>
 		
@@ -81,7 +107,10 @@
 	</div>
 </template>
   
-<style>
+<style scoped>
+	.color-gray {
+		color: #6E6E6E;
+	}
 	.cross-right-item {
 		height: 100vh;	
 	}
@@ -130,7 +159,7 @@
 	}
 	.cross-container {
 		display: flex;
-		height: 500vh;
+		height: 600vh;
 		align-items: stretch;
 		position: relative;
 	}
@@ -188,7 +217,7 @@
       };
     },
     mounted() {
-			
+			let corssVideo = document.getElementById('cross-video')
       gsap.timeline({
         scrollTrigger: {
           trigger: '.cross-right-1',
@@ -213,7 +242,10 @@
 				}
 			})
 			.add("dialtor-move-1")
-			.to(".cross-section1", {top: '-100vh', duration: 1 }, "dialtor-move-1")
+			.to(".cross-section1", {top: '-100vh', duration: 1, onComplete: function(){
+				corssVideo.muted = true;
+				corssVideo.play()
+			} }, "dialtor-move-1")
 
 			gsap.timeline({
 				scrollTrigger: {
@@ -274,9 +306,10 @@
 			.to(".cross-curved", {opacity: 1, duration: 1}, "dialtor-move-3")
 			.to(".cross-left-dilator", {bottom: '-30vh', duration: 1}, "dialtor-move-3")
 
+
 			gsap.timeline({
 				scrollTrigger: {
-					trigger: '.cross-right-4',
+					trigger: '.cross-right-5',
 					start: 'top top',
 					end: 'bottom top',
 					scrub: true,

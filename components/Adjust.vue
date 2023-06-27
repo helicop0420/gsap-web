@@ -27,20 +27,20 @@
 									<div class="first-marker">
 													<div class="first-marker-arrow"></div>
 													<p class="first-marker-title">Proximal marker</p>
-													<p class="first-marker-content">
+													<div class="first-marker-content flex" style="align-items: end;">
 													Metal ring on support<br/>
 													catheter aids visualization<br/>
-													ad resists tip deformation
-													</p>
+													ad resists tip deformation<p style="font-size: 13px; margin-bottom: 8px;">2</p>
+													</div>
 									</div>
 									<div class="second-marker">
 													<div class="second-marker-arrow"></div>
-													<p class="second-marker-title">Balloon markers</p>
-													<p class="second-marker-content">
+													<div class="second-marker-title" style="margin-right: 71px;">Balloon markers</div>
+													<div class="second-marker-content flex" style="align-items: end;">
 																	Markers on distal balloon shoulder<br/>
 																	and every 60 mm aid accurate<br/>
-																	balloon-to-lesion measurement
-													</p>
+																	balloon-to-lesion measurement<p style="font-size: 13px; margin-bottom: 8px; margin-left: -26px;">2</p>
+													</div>
 									</div>
 									<div class="third-marker">
 													<p class="third-marker-content">

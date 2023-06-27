@@ -124,9 +124,6 @@
                 loop: false,
                 autoplay: false,
                 path: 'https://assets1.lottiefiles.com/packages/lf20_bh2Ncy3wJG.json'
-                // https://assets2.lottiefiles.com/packages/lf20_dSaBZqLXsv.json
-                // https://assets8.lottiefiles.com/packages/lf20_XYswRcqon7.json
-                // https://assets4.lottiefiles.com/packages/lf20_wciY22iqor.json
             });
 
         gsap.to('.solution-box-2', {scale: 0.6}).play()
