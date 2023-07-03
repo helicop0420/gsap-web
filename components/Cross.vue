@@ -95,7 +95,11 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-span-2"></div>
+							<div class="col-span-2" style="padding-top: 30px;">
+								<div id="crossLottie" class="lottie-wrapper" ref="crossChart" style="width: 100%; position: relative;">
+									<img src="../assets/img/Scale.png" style="position: absolute; left: 0; right: 0; bottom: -100px;"/>
+								</div>
+							</div>
 						</div>
 						<p class="color-gray mt-3">*Testing performed with Oscar 0.018/6F Support Catheter + Dilator combination</p>
 					</div>
@@ -217,105 +221,115 @@
       };
     },
     mounted() {
-			let corssVideo = document.getElementById('cross-video')
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: '.cross-right-1',
-          start: 'top top',
-          scrub: true,
-					end: "bottom top",
-					pin: true
-          // ease: gsap.Power3.easeOut
-        }
-      })
-			.add('move')
-			.to(".cross-section1", {top: 0, duration: 1 }, "move")
+		const animation3 = lottie.loadAnimation({
+                container: gsap.utils.toArray("#crossLottie")[0],
+                renderer: "svg",
+                loop: false,
+                autoplay: false,
+                path: 'https://assets9.lottiefiles.com/packages/lf20_rJzvFizMU4.json'
+            });
+
+		let corssVideo = document.getElementById('cross-video')
+		gsap.timeline({
+			scrollTrigger: {
+			trigger: '.cross-right-1',
+			start: 'top top',
+			scrub: true,
+						end: "bottom top",
+						pin: true
+			// ease: gsap.Power3.easeOut
+			}
+		})
+		.add('move')
+		.to(".cross-section1", {top: 0, duration: 1 }, "move")
   		.to(".cross-dilator", { top: 0, duration: 1 }, "move")
      
-			gsap.timeline({
-				scrollTrigger: {
-					trigger: '.cross-right-2',
-					start: 'top bottom',
-					end: 'top top',
-					scrub: true,
-					// ease: gsap.Power3.easeOut
-				}
-			})
-			.add("dialtor-move-1")
-			.to(".cross-section1", {top: '-100vh', duration: 1, onComplete: function(){
-				corssVideo.muted = true;
-				corssVideo.play()
-			} }, "dialtor-move-1")
+		gsap.timeline({
+			scrollTrigger: {
+				trigger: '.cross-right-2',
+				start: 'top bottom',
+				end: 'top top',
+				scrub: true,
+				// ease: gsap.Power3.easeOut
+			}
+		})
+		.add("dialtor-move-1")
+		.to(".cross-section1", {top: '-100vh', duration: 1, onComplete: function(){
+			corssVideo.muted = true;
+			corssVideo.play();
+		} }, "dialtor-move-1")
 
-			gsap.timeline({
-				scrollTrigger: {
-					trigger: '.cross-right-2',
-					start: 'top center',
-					end: 'top top',
-					scrub: true,
-					// ease: gsap.Power3.easeOut
-				}
-			})
-			.add("dialtor-move-1")
-			.to(".cross-support", {opacity: 1, duration: 1}, "dialtor-move-1")
-		
+		gsap.timeline({
+			scrollTrigger: {
+				trigger: '.cross-right-2',
+				start: 'top center',
+				end: 'top top',
+				scrub: true,
+				// ease: gsap.Power3.easeOut
+			}
+		})
+		.add("dialtor-move-1")
+		.to(".cross-support", {opacity: 1, duration: 1}, "dialtor-move-1")
+	
 
-			gsap.timeline({
-				scrollTrigger: {
-					trigger: '.cross-right-3',
-					start: 'top bottom',
-					end: 'top top',
-					scrub: true,
-				}
-			})
-			.add("dialtor-move-2")
-			.to(".cross-left-dilator", {bottom: '-180px', duration: 1}, "dialtor-move-2")
+		gsap.timeline({
+			scrollTrigger: {
+				trigger: '.cross-right-3',
+				start: 'top bottom',
+				end: 'top top',
+				scrub: true,
+			}
+		})
+		.add("dialtor-move-2")
+		.to(".cross-left-dilator", {bottom: '-180px', duration: 1}, "dialtor-move-2")
 
-			gsap.timeline({
-				scrollTrigger: {
-					trigger: '.cross-right-3',
-					start: 'top center',
-					end: 'top top',
-					scrub: true,
-				}
-			})
-			.add("dialtor-move-2")
-			.to(".cross-support-2", {opacity: 1, duration: 1}, "dialtor-move-2")
+		gsap.timeline({
+			scrollTrigger: {
+				trigger: '.cross-right-3',
+				start: 'top center',
+				end: 'top top',
+				scrub: true,
+			}
+		})
+		.add("dialtor-move-2")
+		.to(".cross-support-2", {opacity: 1, duration: 1}, "dialtor-move-2")
 			
 
-			gsap.timeline({
-				scrollTrigger: {
-					trigger: '.cross-right-4',
-					start: 'top bottom',
-					end: 'top top',
-					scrub: true,
-				}
-			})
-			.add("dialtor-move-3")
-			.to(".cross-left-dilator", {bottom: '-30vh', duration: 1}, "dialtor-move-3")
+		gsap.timeline({
+			scrollTrigger: {
+				trigger: '.cross-right-4',
+				start: 'top bottom',
+				end: 'top top',
+				scrub: true,
+			}
+		})
+		.add("dialtor-move-3")
+		.to(".cross-left-dilator", {bottom: '-30vh', duration: 1}, "dialtor-move-3")
 
-			gsap.timeline({
-				scrollTrigger: {
-					trigger: '.cross-right-4',
-					start: 'top center',
-					end: 'top top',
-					scrub: true,
-				}
-			})
-			.add("dialtor-move-3")
-			.to(".cross-curved", {opacity: 1, duration: 1}, "dialtor-move-3")
-			.to(".cross-left-dilator", {bottom: '-30vh', duration: 1}, "dialtor-move-3")
+		gsap.timeline({
+			scrollTrigger: {
+				trigger: '.cross-right-4',
+				start: 'top center',
+				end: 'top top',
+				scrub: true,
+			}
+		})
+		.add("dialtor-move-3")
+		.to(".cross-curved", {opacity: 1, duration: 1}, "dialtor-move-3")
+		.to(".cross-left-dilator", {bottom: '-30vh', duration: 1}, "dialtor-move-3")
 
 
-			gsap.timeline({
-				scrollTrigger: {
-					trigger: '.cross-right-5',
-					start: 'top top',
-					end: 'bottom top',
-					scrub: true,
-				}
-			})
-			.to(".cross-section1", {top: '-200vh'})
+		gsap.timeline({
+			scrollTrigger: {
+				trigger: '.cross-right-5',
+				start: 'top top',
+				end: 'bottom top',
+				scrub: true,
+			}
+		})
+		.to(".cross-section1", {top: '-200vh', onStart: () => {
+			animation3.play()
+		}})
     },
     
     watch: {

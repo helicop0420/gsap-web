@@ -12,30 +12,30 @@
         </div>
       <div class="flex desktop-item" id="navbar">       
         <div :class="'header-item'">
-          <a href="#oscar-wrapper" style="display: flex;" class="br-item" @click="clickedItem='oscar'">OSCAR<p style="margin-top: 1px;font-size: 10px;;">®</p></a>
+          <a href="#oscar-wrapper" style="display: flex;" class="br-item" @click="closeContactModal()">OSCAR<p style="margin-top: 1px;font-size: 10px;;">®</p></a>
         </div>
         <div :class="'header-item'">
-          <a href="#solution-wrapper" class="br-item" @click="clickedItem='solution'">ONE SOLUTION</a>
+          <a href="#solution-wrapper" class="br-item" @click="closeContactModal()">ONE SOLUTION</a>
         </div>
         <div :class="'header-item'">
-          <a href="#cross-wrapper" class="br-item" @click="clickedItem='cross'">CROSS</a>
+          <a href="#cross-wrapper" class="br-item" @click="closeContactModal()">CROSS</a>
         </div>
         <div :class="'header-item'">
-          <a href="#adjust-wrapper" class="br-item" @click="clickedItem='adjust'">ADJUST</a>
+          <a href="#adjust-wrapper" class="br-item" @click="closeContactModal()">ADJUST</a>
         </div>
         <div :class="'header-item'">
-          <a href="#restore-wrapper" class="br-item" @click="clickedItem='restore'">RESTORE</a>
+          <a href="#restore-wrapper" class="br-item" @click="closeContactModal()">RESTORE</a>
         </div>
         <div :class="'header-item'">
-          <a href="#test-wrapper" class="br-item" @click="clickedItem='test'">TESTIMONIALS</a>
+          <a href="#test-wrapper" class="br-item" @click="closeContactModal()">TESTIMONIALS</a>
         </div>
         <div :class="'header-item'">
-          <a href="#find-wrapper" style="display: flex; align-items: center; gap: 4px" class="no-border br-item" @click="clickedItem='find'">FIND OUT MORE <outSVG></outSVG></a>
+          <a href="#find-wrapper" style="display: flex; align-items: center; gap: 4px" class="no-border br-item" @click="closeContactModal()">FIND OUT MORE <outSVG></outSVG></a>
         </div>
       </div>
       <div class="flex justify-center items-center">
         <div class="desktop-item">
-          <button class="contact-us">Contact us</button>
+          <button class="contact-us" @click="openContactModal()">Contact us</button>
         </div>
         <!-- <img src="../assets/img/header/logo.svg" /> -->
         <logoSVG></logoSVG>
@@ -123,6 +123,12 @@ export default {
     }
   },
   methods: {
+    openContactModal() {
+      this.$store.dispatch('toggleContactModal', true)
+    },
+    closeContactModal() {
+      this.$store.dispatch('toggleContactModal', false)
+    },
     onClick() {
       this.isOpen = false
     },

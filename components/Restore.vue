@@ -82,7 +82,11 @@
 									</div>
 								</div>
 							</div>
-						<div class="col-span-2"></div>
+						<div class="col-span-2" style="padding-top: 30px;">
+							<div id="restoreLottie6" class="lottie-wrapper" ref="restoreChart6" style="width: 100%; position: relative;">
+								<img src="../assets/img/Scale.png" style="position: absolute; left: 40px; right: 0; bottom: -50px;"/>
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="col-span-1"></div>
@@ -266,7 +270,7 @@
     },
     mounted() {			
 			const selft = this;
-			const {restore1} = this.$refs;
+			const {restore1, restore2, restore3, restoreChart6} = this.$refs;
 
 			const animation1 = lottie.loadAnimation({
                 container: gsap.utils.toArray("#restore1")[0],
@@ -291,6 +295,14 @@
                 autoplay: false,
                 path: 'https://assets8.lottiefiles.com/packages/lf20_XYswRcqon7.json'
             });
+
+			const animation4 = lottie.loadAnimation({
+                container: gsap.utils.toArray("#restoreLottie6")[0],
+                renderer: "svg",
+                loop: false,
+                autoplay: false,
+                path: 'https://assets4.lottiefiles.com/packages/lf20_aX96pVGsFP.json'
+            });
 			ScrollTrigger.create({
 				trigger: restore1,
 				start: "top bottom",
@@ -312,54 +324,61 @@
 					animation3.play();
 				}
 			});
+			ScrollTrigger.create({
+				trigger: restoreChart6,
+				start: "center center",
+				onToggle: self => {
+					animation4.play();
+				}
+			});
 
 
 			gsap.timeline({
-        scrollTrigger: {
-          trigger: '.world-section',
-          start: 'top bottom',
-          scrub: true,
-					end: "top top",
-        }
-      })
+				scrollTrigger: {
+				trigger: '.world-section',
+				start: 'top bottom',
+				scrub: true,
+				end: "top top",
+				}
+			})
 			.to(".world-section", {opacity:1})
 
 			gsap.timeline({
-        scrollTrigger: {
-          trigger: '.achieve-section',
-          start: 'top bottom',
-          scrub: true,
-					end: "center center",
-        }
-      })
+				scrollTrigger: {
+				trigger: '.achieve-section',
+				start: 'top bottom',
+				scrub: true,
+				end: "center center",
+				}
+			})
 			.to(".achieve-section", {opacity:1})
 
 			gsap.timeline({
-        scrollTrigger: {
-          trigger: '.meet-section',
-          start: 'top center',
-          scrub: true,
-					end: "top top",
-        }
-      })
+				scrollTrigger: {
+				trigger: '.meet-section',
+				start: 'top center',
+				scrub: true,
+				end: "top top",
+				}
+			})
 			.to(".meet-left", {left:0})
 		},
 
-		methods: {
+	methods: {
         goToSection (top) {
-        let observer = ScrollTrigger.normalizeScroll(true);
-        console.log('goTo', top);
-        this.scrollTween = gsap.to(window, {
-            scrollTo: {y: top, autoKill: false},
-            ease: "strong.inOut",
-            duration: 1,
-            onStart: () => {
-            observer.disable(); // for touch devices, as soon as we start forcing scroll it should stop any current touch-scrolling, so we just disable() and enable() the normalizeScroll observer
-            observer.enable();
-            },
-            onComplete: () => this.scrollTween = null,
-            overwrite: true
-        });
+			let observer = ScrollTrigger.normalizeScroll(true);
+			console.log('goTo', top);
+			this.scrollTween = gsap.to(window, {
+				scrollTo: {y: top, autoKill: false},
+				ease: "strong.inOut",
+				duration: 1,
+				onStart: () => {
+					observer.disable(); // for touch devices, as soon as we start forcing scroll it should stop any current touch-scrolling, so we just disable() and enable() the normalizeScroll observer
+					observer.enable();
+				},
+				onComplete: () => this.scrollTween = null,
+				overwrite: true
+			});
         },
         getTopPosition (el, idx) {
             // return (idx - 1) * window.innerHeight;

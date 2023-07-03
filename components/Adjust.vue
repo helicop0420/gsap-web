@@ -23,46 +23,42 @@
 					<div class="metal-section-temp">
 					</div>
 					<div class="metal-section">
-									<img class="img-ballon" src="../assets/img/adjust/ballon.png" />
-									<div class="first-marker">
-													<div class="first-marker-arrow"></div>
-													<p class="first-marker-title">Proximal marker</p>
-													<div class="first-marker-content flex" style="align-items: end;">
-													Metal ring on support<br/>
-													catheter aids visualization<br/>
-													ad resists tip deformation<p style="font-size: 13px; margin-bottom: 8px;">2</p>
-													</div>
-									</div>
-									<div class="second-marker">
-													<div class="second-marker-arrow"></div>
-													<div class="second-marker-title" style="margin-right: 71px;">Balloon markers</div>
-													<div class="second-marker-content flex" style="align-items: end;">
-																	Markers on distal balloon shoulder<br/>
-																	and every 60 mm aid accurate<br/>
-																	balloon-to-lesion measurement<p style="font-size: 13px; margin-bottom: 8px; margin-left: -26px;">2</p>
-													</div>
-									</div>
-									<div class="third-marker">
-													<p class="third-marker-content">
-																	<b>Adjustable ballon length</b><br/>
-																	Reinflatable balloon can achieve<br/>
-																	lengths from 20 to 180 mm
-													</p>
-									</div>
+						<img class="img-ballon" src="../assets/img/adjust/ballon.png" />
+						<div class="first-marker">
+							<div class="first-marker-arrow"></div>
+							<p class="first-marker-title">Proximal marker</p>
+							<div class="first-marker-content flex" style="align-items: end;">
+								Metal ring on support<br/>
+								catheter aids visualization<br/>
+								ad resists tip deformation<p style="font-size: 13px; margin-bottom: 8px;">2</p>
+							</div>
+						</div>
+						<div class="second-marker">
+							<div class="second-marker-arrow"></div>
+							<div class="second-marker-title" style="margin-right: 71px;">Balloon markers</div>
+							<div class="second-marker-content flex" style="align-items: end;">
+											Markers on distal balloon shoulder<br/>
+											and every 60 mm aid accurate<br/>
+											balloon-to-lesion measurement<p style="font-size: 13px; margin-bottom: 8px; margin-left: -26px;">2</p>
+							</div>
+						</div>
+						<div id="adjust-content" class="adjust-content">
+
+						</div>
 					</div>
 	</div>
 </template>
 
 <style scoped>
 	.pta-section {
-					top: 0;
-					left: 0;
-					right: 0;
-					z-index: 5;
-					position: absolute;
-					height: 100vh;
-					width: 100vw;
-					background-color: black;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 5;
+		position: absolute;
+		height: 100vh;
+		width: 100vw;
+		background-color: black;
 	}
 	.img-panel {
 		position: absolute;
@@ -85,11 +81,11 @@
 	}
 	.img-slider {
 		position: absolute;
-    z-index: 11;
-    right: -9%;
-    top: 8vw;
-    height: 40vw;
-    cursor: pointer;
+		z-index: 11;
+		right: -9%;
+		top: 8vw;
+		height: 40vw;
+		cursor: pointer;
 	}
 	.img-stick {
 					position: absolute;
@@ -129,20 +125,22 @@
 	}
 
 	.img-ballon {
-					position: absolute;
-					top: 50%;
-					height: 67vw;
-	max-width: 400vw;
-	width: 400vw;
-					transform: translateY(-50%);
+		position: absolute;
+		top: 50%;
+		height: 67vw;
+		max-width: 400vw;
+		width: 400vw;
+		transform: translateY(-50%);
+		z-index: 30;
 	}
 
 	.first-marker {
-					position: absolute;
-					color: white;
-					opacity: 0;
-					top: 55%;
-	left: 13vw;
+		position: absolute;
+		color: white;
+		opacity: 0;
+		top: 55%;
+		left: 13vw;
+		z-index: 25;
 	}
 
 	.first-marker-arrow {
@@ -160,20 +158,21 @@
 	}
 
 	.second-marker {
-					display: flex;
-					flex-direction: column;
-					align-items: center;
-					position: absolute;
-					color: white;
-					opacity: 0;
-					top: 55%;
-					right: 10vw;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		position: absolute;
+		color: white;
+		opacity: 0;
+		top: 55%;
+		right: 10vw;
+		z-index: 25;
 	}
 	.second-marker-arrow {
-					width: 40vw;
-					height: 8vw;
-					border-bottom: 1px solid white;
-					border-left: 1px solid white;
+		width: 40vw;
+		height: 8vw;
+		border-bottom: 1px solid white;
+		border-left: 1px solid white;
 	}
 
 	.second-marker-title {
@@ -183,24 +182,22 @@
 					font-size: 20px;
 	}
 
-	.third-marker {
-					position: absolute;
-					left: -100px;
-					opacity: 0;
-					bottom: 10%;
-					color: white;
-					padding-right: 5px;
-					border-right: 1px solid white;
+	.adjust-content {
+		position: absolute;
+		opacity: 0;
+		bottom: 0;
+		color: white;
+		z-index: 20;
 	}
 	.third-marker-content {
-					text-align: right;
-					font-size: 20px;
+		text-align: right;
+		font-size: 20px;
 	}
 
 	.img-bounder {
 		height: 100px;
-    margin-left: 17%;
-    width: 91%;
+		margin-left: 17%;
+		width: 91%;
 	}
 	
 </style>
@@ -208,8 +205,8 @@
 <script>
 import gsap from 'gsap'
 import lottie from 'lottie-web'
-	import adjustSVG from '../assets/img/adjust/standard_adjust.svg'
-	import restoreSVG from '../assets/img/adjust/restore_adjust.svg'
+import adjustSVG from '../assets/img/adjust/standard_adjust.svg'
+import restoreSVG from '../assets/img/adjust/restore_adjust.svg'
 // var ScrollTrigger = null;
 if (process.client) {
 	var {ScrollTrigger} = require('gsap/ScrollTrigger');
@@ -225,57 +222,65 @@ export default {
 			return {
 			};
 	},
-	mounted() {         
-			gsap.timeline({
-					scrollTrigger: {
-							trigger: '.pta-section',
-							start: 'top top',
-							end: '+=4000',
-							scrub: true,
-							pin: true
-					}
-			})
-			.add('image-up')
-			.to(".img-panel", {top: '-24vw', duration: 2 }, "image-up")
-			.to(".pta-text", {opacity: 1, duration: 2}, "image-up")
-			.to(".pta-section", {top: '-100vh', opacity: 0, delay:2, duration: 10})
+	mounted() {       
+		let playhead = {frame: 0}
+		const animation3 = lottie.loadAnimation({
+                container: gsap.utils.toArray("#adjust-content")[0],
+                renderer: "svg",
+                loop: false,
+                autoplay: false,
+                path: 'https://assets1.lottiefiles.com/packages/lf20_2xrsDhrCLE.json'
+            });  
+		gsap.timeline({
+			scrollTrigger: {
+				trigger: '.pta-section',
+				start: 'top top',
+				end: '+=4000',
+				scrub: true,
+				pin: true
+			}
+		})
+		.add('image-up')
+		.to(".img-panel", {top: '-24vw', duration: 2 }, "image-up")
+		.to(".pta-text", {opacity: 1, duration: 2}, "image-up")
+		.to(".pta-section", {top: '-100vh', opacity: 0, delay:2, duration: 10})
 
-			gsap.timeline({
-					scrollTrigger: {
-							trigger: '.metal-section',
-							start: 'top top',
-							end: '+=8000',
-							scrub: true,
-							pin: true,
-							// ease: gsap.Power3.easeOut
-					}
-			})
-			.to(".first-marker", {opacity:1, duration: 3, ease: "power2.out", delay: 13})
-			.add("ballon-move-1")
-			.to(".first-marker", {x: '-250vw', duration: 10, delay:2}, "ballon-move-1")
-			.to(".img-ballon", {x: '-250vw', duration: 10, delay: 2}, "ballon-move-1")
-			.to(".second-marker", {opacity:1, duration: 3, ease: "power2.out"})
-			.add("ballon-move-2")
-			.to(".second-marker", {x: '150px', opacity:0, duration: 6, ease: "power2.out", delay: 2}, "ballonmove-2")
-			.to(".img-ballon", {top: '20%', width: '100vw', height: '14vw', duration: 6, x: 0, delay:2 }, "ballonmove-2")
-			.to(".third-marker", {opacity: 1, duration: 3})
-			.to(".third-marker", {left: '70vw', duration:6, delay: 2})
+		gsap.timeline({
+			scrollTrigger: {
+				trigger: '.metal-section',
+				start: 'top top',
+				end: '+=8000',
+				scrub: true,
+				pin: true,
+				// ease: gsap.Power3.easeOut
+			}
+		})
+		.to(".first-marker", {opacity:1, duration: 3, ease: "power2.out", delay: 13})
+		.add("ballon-move-1")
+		.to(".first-marker", {x: '-250vw', duration: 10, delay:2}, "ballon-move-1")
+		.to(".img-ballon", {x: '-250vw', duration: 10, delay: 2}, "ballon-move-1")
+		.to(".second-marker", {opacity:1, duration: 3, ease: "power2.out"})
+		.add("ballon-move-2")
+		.to(".second-marker", {x: '150px', opacity:0, duration: 6, ease: "power2.out", delay: 2}, "ballonmove-2")
+		.to(".img-ballon", {top: '20%', width: '115vw', height: '16vw', duration: 6, x: 0, delay:2, opacity: 1 }, "ballonmove-2")
+		.to(".adjust-content", {opacity:1, duration: 3, onStart: (a,b,c) => {
+                animation3.play()
+            },})
 
-			console.log('Drag', Draggable)
-			Draggable.create('#img-slider', {
-				type: 'x',
-				bounds: document.getElementById('img-bounder'),
-				onDrag () {
-					let style =  window.getComputedStyle(document.getElementById('img-slider'));
-					var transformX = new WebKitCSSMatrix(style.transform).m41;
-					console.log('rightPos', transformX)
-					console.log('adust', document.getElementById('img-adjust').style)
-					var parentW = document.getElementById('img-adjust').parentElement.clientWidth
-					document.getElementById('img-adjust').style.right = `${-0.08*parentW-transformX}px`
-					
-				}
-			})
-		}
+		Draggable.create('#img-slider', {
+			type: 'x',
+			bounds: document.getElementById('img-bounder'),
+			onDrag () {
+				let style =  window.getComputedStyle(document.getElementById('img-slider'));
+				var transformX = new WebKitCSSMatrix(style.transform).m41;
+				console.log('rightPos', transformX)
+				console.log('adust', document.getElementById('img-adjust').style)
+				var parentW = document.getElementById('img-adjust').parentElement.clientWidth
+				document.getElementById('img-adjust').style.right = `${-0.08*parentW-transformX}px`
+				
+			}
+		})
+	}
 };
 
 

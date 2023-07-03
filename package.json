@@ -22,7 +22,8 @@
     "nuxt-agile": "^1.0.1",
     "nuxt-svg-loader": "^1.2.0",
     "vue-agile": "^2.0.0",
-    "vue-lottie": "^0.2.1"
+    "vue-lottie": "^0.2.1",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",

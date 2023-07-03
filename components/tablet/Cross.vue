@@ -88,7 +88,11 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-span-2"></div>
+							<div class="col-span-2" style="padding-top: 30px;">
+								<div id="crossLottie" class="lottie-wrapper" ref="crossChart" style="width: 100%; position: relative;">
+									<img src="../../assets/img/Scale.png" style="position: absolute; left: 0; right: 0; bottom: -100px;"/>
+								</div>
+							</div>
 						</div>
 						<p class="color-gray mt-3">*Testing performed with Oscar 0.018/6F Support Catheter + Dilator combination</p>
 					</div>
@@ -210,6 +214,13 @@
       };
     },
     mounted() {
+			const animation3 = lottie.loadAnimation({
+                container: gsap.utils.toArray("#crossLottie")[0],
+                renderer: "svg",
+                loop: false,
+                autoplay: false,
+                path: 'https://assets9.lottiefiles.com/packages/lf20_rJzvFizMU4.json'
+            });
 			let corssVideo = document.getElementById('cross-video')
      
 			gsap.timeline({
@@ -240,12 +251,14 @@
 			gsap.timeline({
 				scrollTrigger: {
 					trigger: '.cross-right-5',
-					start: 'top top',
+					start: 'center center',
 					end: 'bottom top',
 					scrub: true,
 				}
 			})
-			.to(".cross-section1", {top: '-200vh'})
+			.to(".cross-section1", {top: '-200vh', onStart: () => {
+				animation3.play()
+			}})
     },
     
     watch: {

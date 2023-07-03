@@ -1,5 +1,6 @@
 <template>
   <div id="biotronik" style="overflow: hidden;">
+    <contactus v-if="isOpenContact == true"/>
     <template v-if="mode==='desktop'">
       <div id="oscar-wrapper">
         <div ref="oscar1">
@@ -8,6 +9,7 @@
         <div ref="oscar2">
           <oscar2 />
         </div>
+        
       </div>
       <div ref="solution">
         <solution />
@@ -49,6 +51,7 @@ import Cross from '@/components/Cross'
 import Adjust from '@/components/Adjust'
 import Restore from '@/components/Restore'
 import Testimon from '@/components/Testimon'
+import ContactUs from '@/components/ContactUs.vue'
 import HeroContentMobile from '@/components/HeroContentMobile'
 import TabletOscar1 from '@/components/tablet/Oscar1.vue'
 import TabletOscar2 from '@/components/tablet/Oscar2.vue'
@@ -72,6 +75,11 @@ export default {
     return {
       mode: '',
       scrollTween: null,
+    }
+  },
+  computed:{
+    isOpenContact(){
+      return this.$store.state.isOpenContact
     }
   },
   methods: {
@@ -132,6 +140,7 @@ export default {
     'adjust': Adjust,
     'restore': Restore,
     'testimon': Testimon,
+    'contactus': ContactUs,
     'tablet-oscar1': TabletOscar1,
     'tablet-oscar2': TabletOscar2,
     'tablet-solution': TabletSolution,
